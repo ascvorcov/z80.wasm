@@ -15,7 +15,7 @@ namespace z80wasm.Pages
         protected ElementReference _mainDivReference;
 
         [Inject]
-        public IJSRuntime _runtime { get; set; }
+        public IJSRuntime? _runtime { get; set; }
 
 
         [JSInvokable]
