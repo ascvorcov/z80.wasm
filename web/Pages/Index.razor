@@ -1,0 +1,8 @@
+﻿@page "/"
+@inherits IndexComponent
+
+<input type="file" id="fileUpload" ref="fileUpload" onchange="javascript:onFileUpload(this);"/>
+----
+<div @onkeydown="@OnKeyDown" @onkeyup="@OnKeyUp" @ref="_mainDivReference" tabindex="0">
+<BECanvas Width="500" Height="500" @ref="_canvasReference" ></BECanvas>
+</div>
