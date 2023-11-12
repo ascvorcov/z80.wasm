@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>z80wasm</title>
+    <base href="/" />
+    <link href="css/app.css" rel="stylesheet" />
+    
+    <!-- If you add any scoped CSS files, uncomment the following to load them
+    <link href="z80wasm.styles.css" rel="stylesheet" /> -->
+</head>
+
+<body>
+    <div id="app">Loading...</div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+    <script src="_framework/blazor.webassembly.js"></script>
+    <script src="_content/Blazor.Extensions.Canvas/blazor.extensions.canvas.js"></script>
+    <script>
+        function onFileUpload(e) {
+            const files = e.files;
+            const countFiles = files.length;
+            if (countFiles > 0) {
+                const selectedFile = files[0];
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    theInstance.invokeMethodAsync('UploadData', reader.result);
+                };
+                reader.readAsDataURL(selectedFile);
+            }
+        }
+
+        function drawOnCanvas(canvas, data, palette) {
+          var ctx = canvas.getContext("2d");
+          var imageData = ctx.createImageData(352, 312);
+          var dst = imageData.data;
+
+          for (var i = 0; i < data.length; i++) {
+              var offset = i * 4;
+              var colorIndex = data[i] * 3;
+              dst[offset+0] = palette[colorIndex+0]; // R
+              dst[offset+1] = palette[colorIndex+1]; // G
+              dst[offset+2] = palette[colorIndex+2]; // B
+              dst[offset+3] = 255; // A
+          }
+
+          ctx.putImageData(imageData, 0, 0);
+        }
+        function gameLoop(timeStamp) {
+            window.requestAnimationFrame(gameLoop);
+            theInstance.invokeMethodAsync('GameLoop', timeStamp);
+        }
+        
+        window.initGame = (instance) => {
+            window.theInstance = instance;
+            window.requestAnimationFrame(gameLoop);
+        };
+
+    </script>
+</body>
+
+</html>
