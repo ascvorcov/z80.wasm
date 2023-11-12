@@ -45,8 +45,8 @@
       "System.Text.Json.dll": "sha256-FirxXO6VnTf6xTdEipKG44sMmXuTXl+OpY7iveS3vWE=",
       "System.Threading.dll": "sha256-mKdBfBRKho993PgJsbjrz590w2nWnl1G6LGyxCiTQ3o=",
       "System.Threading.Thread.dll": "sha256-avYFwkxZdOeYn1+JOZXglDMW8g\/Zvy1nHg+deufsOqY=",
-      "z80emu.dll": "sha256-8dR5MKEzH8qjStMOkbvb5a9ueZy+Xt07aalnXCwksxA=",
-      "z80wasm.dll": "sha256-zSOSw5pSRnLvpfSNRIe7YiLr4jZDHv+7RLaoi1+V7DY="
+      "z80emu.dll": "sha256-2y8RRaaOClE08HyKb5m4fsXjf5p5oBoK5J1hF0N+Lec=",
+      "z80wasm.dll": "sha256-TDxMrPA7mqJXvUO\/vavyGphccYSjUfdfjeq0nUqv8sk="
     },
     "extensions": null,
     "lazyAssembly": null,
