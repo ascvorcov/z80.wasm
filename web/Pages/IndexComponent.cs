@@ -60,6 +60,7 @@ namespace z80wasm.Pages
                 return;
 
             this._emulator = new Emulator();
+            this._emulator.LoadSample();
             object obj = DotNetObjectReference.Create(this);
             await _runtime.InvokeAsync<object>("initGame", new[] { obj });
             await _mainDivReference.FocusAsync();
