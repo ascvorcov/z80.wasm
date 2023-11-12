@@ -1,3 +1,0 @@
-[submodule "emu"]
-	path = emu
-	url = https://github.com/ascvorcov/z80.net
